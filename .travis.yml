@@ -13,3 +13,15 @@ before_install:
           #---------------------
 script:
         - docker container run -e CI=true enigma777/react1:test yarn test --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: 'us-east-2'
+  app: 'react1'
+  env: 'React1-env'
+  bucket_name: 'elasticbeanstalk-us-east-2-953221015814'
+  bucket_path: 'react1'
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
