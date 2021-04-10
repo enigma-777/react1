@@ -12,4 +12,4 @@ before_install:
 
           #---------------------
 script:
-        - docker container run -e CI=true react1 yarn test --coverage
+        - docker container run -e CI=true enigma777/react1:test yarn test --coverage
