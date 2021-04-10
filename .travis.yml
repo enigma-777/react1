@@ -1,0 +1,15 @@
+language: generic
+sudo: required
+services:
+        - docker
+
+before_install:
+        - docker image build -t enigma777/react1:test -f Dockerfile.dev .
+
+          #script:
+          #  - docker run -e CI=true enigma777/react1:test npm run test -- --coverage
+  
+
+          #---------------------
+script:
+        - docker container run -e CI=true react1 yarn test --coverage
